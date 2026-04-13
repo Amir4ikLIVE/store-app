@@ -13,7 +13,7 @@ import {
   Orders
 
 } from "./pages";
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
@@ -62,11 +62,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <div>
-      <h1 className='text-red-600'>Store App</h1>
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App;
