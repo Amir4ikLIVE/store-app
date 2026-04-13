@@ -1,11 +1,38 @@
-import React from 'react'
+import { Link, useRouteError } from "react-router-dom";
 
-function Error() {
-  return (
-    <div>
-      <h1>ERROR 404. Page is not avaible, or doesn't exist!</h1>
-    </div>
-  )
-}
+const Error = () => {
+
+  const error = useRouteError();
+  
+  if(error.status === 404) {
+    return (
+    <main className="min-h-[100vh] grid place-items-center px-8">
+      <div className="text-center">
+        <p className="text-9xl font-semibold text-primary">
+          404
+        </p>
+        <h1 className="text-3xl font-bold tracking-tight mt-4 sm:text-5xl">
+          page not found
+        </h1>
+        <p className="mt-6 text-lg leading-7">
+          Sorry, we couldn't find the page you're looking for.
+        </p>
+        <div className="mt-10">
+          <Link to="/" className="btn btn-secondary">
+            GO BACK HOME
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
+  }
+  else {
+    return (
+      <main className="min-h-[100vh] grid place-items-center px-8">
+        <h4>Undefined error</h4>
+      </main>
+    )
+  }
+};
 
 export default Error;
