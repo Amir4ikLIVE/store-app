@@ -1,6 +1,6 @@
 import { Form, Link } from "react-router-dom";
 import { FormInput, SubmitBtn } from "../components";
-import { Link } from "react-router-dom";
+
 const Login = () => {
   return <section className="h-screen grid place-items-center">
     <Form className="card flex flex-col w-96 p-8 bg-base-100 shadow-lg gap-y-4">
