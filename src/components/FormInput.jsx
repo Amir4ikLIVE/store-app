@@ -4,12 +4,12 @@ const formInput = ({label, type, defaultValue}) => {
     return (
         <div className="form-control">
             <label className="label flex">
-                Username
+                {label}
             </label>
             <input
                 type={type}
                 defaultValue={defaultValue}
-                className='text' />
+                className='input mt-2' />
         </div>
     )
 }

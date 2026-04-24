@@ -14,6 +14,13 @@ const Register = () => {
         name="indentifier"
       />
 
+       <FormInput 
+        type="email"
+        label="Email"
+        name="indentifier"
+        />
+        
+
       <FormInput 
         type="password"
         label="Password"
@@ -25,7 +32,7 @@ const Register = () => {
         </div>
 
         <p className="text-center"> 
-            Not a member yet?
+            Already a member?
             <Link to="/login" className="link link-primary ml-2">Login</Link>
         </p>
     </Form>
