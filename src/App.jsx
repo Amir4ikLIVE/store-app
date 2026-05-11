@@ -10,10 +10,14 @@ import {
   Landing,
   Login,
   Register,
-  Orders
+  Orders,
 
 } from "./pages";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import { ErrorElement } from './components';
+import { loader as landingLoader } from './pages/Landing';
+import { loader as singleProductLoader } from './pages/SingleProduct';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +26,9 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Landing />
+        element: <Landing />,
+        errorElement: <ErrorElement />,
+        loader: landingLoader
       },
       {
         path: "about",
@@ -44,21 +50,22 @@ const router = createBrowserRouter([
         path: "products",
         element: <Products />
       },
-      {
-        path: "products/:id",
-        element: <SingleProduct />
+      {  
+        path: "/products/:id",
+        element: <SingleProduct />,
+        loader: singleProductLoader
       }
-    ],
-    errorElement: <Error />
+],
+  errorElement: <Error />
   },
-  {
-    path: "login",
+{
+  path: "login",
     element: <Login />
-  },
-  {
-    path: "register",
+},
+{
+  path: "register",
     element: <Register />
-  }
+}
 ]);
 
 function App() {
