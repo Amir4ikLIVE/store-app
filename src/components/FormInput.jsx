@@ -1,6 +1,6 @@
 import React from 'react'
 
-const formInput = ({label, type, defaultValue}) => {
+const formInput = ({label, type, defaultValue, size}) => {
     return (
         <div className="form-control">
             <label className="label flex">
@@ -9,7 +9,8 @@ const formInput = ({label, type, defaultValue}) => {
             <input
                 type={type}
                 defaultValue={defaultValue}
-                className='input mt-2' />
+                className={`input ${size}`}
+                />
         </div>
     )
 }
