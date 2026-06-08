@@ -3,6 +3,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const themes = {
   winter: "winter",
@@ -12,14 +13,17 @@ const themes = {
 const getThemeFromLocalStorage = () => localStorage.getItem("theme") || themes.winter;
 
 const Navbar = () => {
+  const data = useSelector((state) => state.cartState)
+  console.log(data.cartItems);
+  
   const [theme, setTheme] = useState(getThemeFromLocalStorage());
 
   const changeTheme = () => {
     let newTheme = theme === themes.winter ? themes.dracula : themes.winter;
-  /*
-const getThemeFromLocalStorage = () =>
-  localStorage.getItem("theme") || "winter";
-  */
+    /*
+  const getThemeFromLocalStorage = () =>
+    localStorage.getItem("theme") || "winter";
+    */
     localStorage.setItem("theme", newTheme);
     setTheme(newTheme);
   }
@@ -52,14 +56,14 @@ const getThemeFromLocalStorage = () =>
         </div>
         <div className="navbar-end">
           <label className="swap swap-rotate" onChange={changeTheme}>
-            <input type="checkbox" className=""/>
+            <input type="checkbox" className="" />
             <BsSunFill className="swap-on w-5 h-5" />
             <BsMoonFill className="swap-off w-5 h-5" />
           </label>
           <NavLink to="/cart" className="btn btn-ghost btn-circle btn-md ml-4">
             <div className="indicator">
               <BsCart3 className="w-6 h-6" />
-              <span className="indicator-item badge badge-primary badge-sm">0</span>
+              <span className="indicator-item badge badge-primary badge-sm">{data.numItemsInCart}</span>
             </div>
           </NavLink>
         </div>

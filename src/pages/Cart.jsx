@@ -1,11 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
-function Cart() {
-  return (
-    <div>
-      <h1>Cart</h1>
-    </div>
-  )
+const Cart = () => {
+  const cartData = useSelector((state) => state.cartState);
+  console.log(cartData);
+  return <h1 className='text-4xl'>Cart</h1>
 }
 
 export default Cart;
