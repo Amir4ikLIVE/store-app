@@ -5,7 +5,7 @@ const Register = () => {
   return <section className="h-screen grid place-items-center">
     <Form className="card flex flex-col w-96 p-8 bg-base-100 shadow-lg gap-y-4">
       <h4 className="text-4xl text-center font-bold">
-        Login
+        Register
         </h4>
    
       <FormInput
@@ -20,7 +20,6 @@ const Register = () => {
         name="indentifier"
         />
         
-
       <FormInput 
         type="password"
         label="Password"

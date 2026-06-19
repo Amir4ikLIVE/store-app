@@ -23,16 +23,17 @@ function SingleProduct() {
 
   const addToCart = () => {
     const cartProduct = {
-      productID: product.id + productColor,
+      cartID: `${product.id}-${productColor}`,
+      productID: product.id,
       title,
       image,
       company,
       amount,
       productColor,
-      price
-    }
+      price,
+    };
 
-    dispatch(addItem({product: cartProduct}));
+    dispatch(addItem({ product: cartProduct }));
   }
 
   return (
@@ -96,9 +97,9 @@ function SingleProduct() {
             </select>
           </div>
           <div className="mt-10">
-            <button 
-            className='btn btn-secondary btn-md uppercase'
-            onClick={addToCart}
+            <button
+              className='btn btn-secondary btn-md uppercase'
+              onClick={addToCart}
             >
               add to bag
             </button>
